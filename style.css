@@ -19,7 +19,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* 기존 30px에서 40px로 간격 확대 */
 }
 
 h1 {
@@ -292,7 +292,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 32px; /* 기존 8px에서 32px로 간격 확대 */
 }
 
 .profile-circle {
