@@ -136,6 +136,8 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     padding: 20px 0;
+    justify-content: center; /* 카드들을 수평 중앙정렬 */
+    place-items: center;      /* 카드들을 그리드 셀 내에서도 중앙정렬 */
 }
 
 .card {
