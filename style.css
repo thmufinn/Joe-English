@@ -240,7 +240,7 @@ h1 {
     .controls {
         flex-direction: column;
         gap: 10px;
-        align-items: flex-start;
+        align-items: center; /* 버튼들을 가운데 정렬 */
     }
     /* 카드개수: 텍스트와 셀렉트박스를 한 줄에 배치 */
     .card-count-row {
