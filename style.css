@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ADD3F9;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.controls label {
+    font-weight: 600;
+    color: #555;
+}
+
+/* 카드 개수 선택 박스 귀엽게 */
+.controls select {
+    padding: 10px 32px 10px 16px;
+    border: 2px solid #C6FB50;
+    border-radius: 20px;
+    font-size: 1rem;
+    background: #fff url('data:image/svg+xml;utf8,<svg fill="%23C6FB50" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M5.516 7.548a1 1 0 0 1 1.415 0L10 10.617l3.07-3.07a1 1 0 1 1 1.415 1.415l-3.777 3.778a1 1 0 0 1-1.415 0L5.516 8.963a1 1 0 0 1 0-1.415z"/></svg>') no-repeat right 12px center/20px 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-shadow: 0 2px 8px rgba(198,251,80,0.08);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.controls select:focus {
+    outline: none;
+    border-color: #5B6BEF;
+    box-shadow: 0 0 0 2px #5B6BEF33;
+}
+
+/* select 박스 화살표 영역 클릭 시 커서 변경 */
+.controls select {
+    cursor: pointer;
+}
+
+.controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#generateBtn, #resetBtn, #flipAllBtn {
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 28px;
+    letter-spacing: 0.5px;
+    border: none;
+    margin: 0 4px;
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+}
+#generateBtn:active, #resetBtn:active, #flipAllBtn:active {
+    transform: scale(0.96);
+}
+#generateBtn::after, #resetBtn::after, #flipAllBtn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.18;
+    transform: translateY(-50%);
+}
+#generateBtn::after {
+    background: #C6FB50;
+}
+#resetBtn::after {
+    background: #FF4265;
+}
+#flipAllBtn::after {
+    background: #5B6BEF;
+}
+
+#generateBtn {
+    background: #222222;
+    color: white;
+}
+
+#resetBtn {
+    background: #FF4265;
+    color: white;
+}
+
+#flipAllBtn {
+    background: #5B6BEF;
+    color: white;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 150px;
+    height: 200px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-front {
+    background: #C6FB50;
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-back {
+    background: #5B6BEF;
+    color: white;
+    transform: rotateY(180deg);
+    display: table;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0deg);
+}
+
+.card-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    padding: 20px;
+    box-sizing: border-box;
+    line-height: 1.4;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.card-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    margin: 0 0 8px 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .card-front, .card-back {
+        font-size: 1rem;
+    }
+}
+
+/* 애니메이션 효과 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
+.card:nth-child(9) { animation-delay: 0.9s; }
+.card:nth-child(10) { animation-delay: 1.0s; }
+.card:nth-child(11) { animation-delay: 1.1s; }
+.card:nth-child(12) { animation-delay: 1.2s; }
+.card:nth-child(13) { animation-delay: 1.3s; }
+.card:nth-child(14) { animation-delay: 1.4s; }
+.card:nth-child(15) { animation-delay: 1.5s; }
+.card:nth-child(16) { animation-delay: 1.6s; }
+.card:nth-child(17) { animation-delay: 1.7s; }
+.card:nth-child(18) { animation-delay: 1.8s; }
+.card:nth-child(19) { animation-delay: 1.9s; }
+.card:nth-child(20) { animation-delay: 2.0s; } 
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.profile-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    border: none;
+    display: block;
+}
+
+.header-row h1 {
+    line-height: 48px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+} 

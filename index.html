@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맥잉글리시</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-row">
+                <img src="7E59A293-00AE-44B7-AD7E-6E32E89B52B1.PNG" alt="프로필" class="profile-circle" />
+                <h1>조잉글리시</h1>
+            </div>
+            <div class="controls">
+                <label for="cardCount">카드 개수:</label>
+                <select id="cardCount">
+                    <option value="4">4개</option>
+                    <option value="6">6개</option>
+                    <option value="8">8개</option>
+                    <option value="10">10개</option>
+                    <option value="12">12개</option>
+                    <option value="16">16개</option>
+                    <option value="20">20개</option>
+                </select>
+                <button id="generateBtn">카드 생성</button>
+                <button id="resetBtn">초기화</button>
+                <button id="flipAllBtn">모든 카드 뒤집기</button>
+            </div>
+        </header>
+        
+        <main>
+            <div id="cardContainer" class="card-container">
+                <!-- 카드들이 여기에 동적으로 생성됩니다 -->
+            </div>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-text">조잉글리시의 자산입니다</div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
