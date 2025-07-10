@@ -240,6 +240,21 @@ h1 {
     .controls {
         flex-direction: column;
         gap: 10px;
+        align-items: flex-start;
+    }
+    /* 카드개수: 텍스트와 셀렉트박스를 같은 줄에 배치 */
+    .controls label, .controls select {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        margin-bottom: 0;
+    }
+    .controls label {
+        min-width: 70px;
+        margin-bottom: 0;
+    }
+    .controls select {
+        min-width: 80px;
     }
     
     .card-container {
