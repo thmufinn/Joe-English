@@ -242,18 +242,17 @@ h1 {
         gap: 10px;
         align-items: flex-start;
     }
-    /* 카드개수: 텍스트와 셀렉트박스를 같은 줄에 배치 */
-    .controls label, .controls select {
-        display: inline-block;
-        vertical-align: middle;
+    /* 카드개수: 텍스트와 셀렉트박스를 한 줄에 배치 */
+    .card-count-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+    .card-count-row label {
         margin-right: 8px;
-        margin-bottom: 0;
-    }
-    .controls label {
         min-width: 70px;
-        margin-bottom: 0;
     }
-    .controls select {
+    .card-count-row select {
         min-width: 80px;
     }
     
